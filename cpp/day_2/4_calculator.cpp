@@ -13,7 +13,14 @@ int main()
 
   cout << "Input number 2: ";
   cin >> num2;
-
+  if( num2 == 0)
+  {
+  	do
+	{
+		cout << "Input number 2 again: ";
+		cin >> num2;
+	}while (num2 == 0);
+  }
   switch (op)
   {
     case '+':
