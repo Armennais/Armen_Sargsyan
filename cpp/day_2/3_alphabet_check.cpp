@@ -22,7 +22,6 @@ int main()
 			case 'u':
 				cout << "'" << letter << "' is vowel \n";
 				break;
-
 			default:
 				cout << "'" << letter << "' is consonant \n";
 		}
@@ -31,7 +30,6 @@ int main()
 	{
 		cout << letter << " is not letter.\n";
 	}
-
 	return 0;
 
 }
