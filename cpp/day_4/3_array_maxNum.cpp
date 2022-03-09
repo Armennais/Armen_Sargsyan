@@ -5,9 +5,10 @@ int find_max(int, int randArray[]);
 
 int main()
 {
-  int num;
+  int n;
   cout << "Enter the size of array: ";
-  cin >> num;
+  cin >> n;
+  const int num = n;
   max_val_array(num);
   return 0;
 }
