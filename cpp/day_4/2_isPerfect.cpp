@@ -32,12 +32,5 @@ bool isPerfect(int num)
       sum = sum + i;
   }
 
-  if (num == sum)
-  {
-    return true;
-  }
-  else
-  {
-    return false;
-  }
+  return (num == sum);
 }
