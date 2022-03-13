@@ -6,7 +6,7 @@ int main()
 {
 	srand(time(0));
 	const int n = 4;
-	int matrix1[n][n], matrix2[n][n];
+	int matrix1[n][n], matrix2[n][n],sum[n][n];
 	for (int i = 0; i < n; i++)
 	{
 		for (int j = 0; j < n; j++)
@@ -50,7 +50,15 @@ int main()
 	{
 		for (int j = 0; j < n; j++)
 		{
-			cout << matrix1[i][j] + matrix2[i][j] << " ";
+			
+			sum[i][j] = matrix1[i][j] + matrix2[i][j];
+			if (sum[i][j] <= 9)
+			{
+				cout << sum[i][j] << "  ";
+			}else
+			{
+				cout << sum[i][j] << " ";
+			}
 		}
 
 		cout << endl;
