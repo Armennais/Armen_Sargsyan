@@ -53,12 +53,12 @@ void sum3(int a, int b, int &sum)
 void sum4(int a, int *b, int &sum)
 {
   sum = a + *b;
-  cout << "Sum 3: ";
+  cout << "Sum 4: ";
   cout << a << " + " << *b << " = " << sum;
 }
 void sum5(int *a, int *b, int &sum)
 {
   sum = *a + *b;
-  cout << "Sum 3: ";
+  cout << "Sum 5: ";
   cout << *a << " + " << *b << " = " << sum;
 }
