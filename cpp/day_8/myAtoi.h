@@ -18,5 +18,5 @@ int myAtoi (char * arr)
 			res = 0;
 		}
 	}
-	return res*negative;
+	return res * negative;
 }
