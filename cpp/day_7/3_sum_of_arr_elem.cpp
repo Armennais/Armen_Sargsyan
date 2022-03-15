@@ -3,9 +3,12 @@ using namespace std;
 
 void sum(int *arr, int size)
 {
-  int i, sum = 0;
-  for (i = 0; i < size; i++)
-    sum = sum + *(arr + i);
+  int sum = 0;
+  int *ptr = arr;
+  while (ptr < arr + size)
+  {
+     sum = sum + *(ptr++);
+  }
   cout << "sum  = " << sum;
 }
 
