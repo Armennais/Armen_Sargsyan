@@ -1,5 +1,5 @@
 #include <iostream>
-#include "2_sort_matrix.h"
+#include "../lib/2_sort_matrix.h"
 using namespace std;
 void display_matrix(int**, int, int);
 void sort_matrix(int**, int, int);
