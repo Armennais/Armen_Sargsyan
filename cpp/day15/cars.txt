@@ -1,0 +1,7 @@
+bmw 10000 30000 25000 2.7 manual black
+audi 11000 28000 14000 2.0 automatic white
+toyota 6000 19000 30000 2.4 automatic red
+bmw 11000 30000 25000 2.7 manual black
+bmw 15000 19000 30000 2.4 automatic red
+bmw 11200 30000 25000 2.7 manual black
+
