@@ -3,6 +3,7 @@ using namespace std;
 int main()
 {
 	int monthnumber;
+input:
 	cout << "Input Month number : ";
 	cin >> monthnumber;
 	switch (monthnumber)
@@ -27,6 +28,7 @@ int main()
 			break;
 		default:
 			cout << "Error:Entered involid month number\n";
+			goto input;
 	}
 
 	return 0;
