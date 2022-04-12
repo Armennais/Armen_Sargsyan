@@ -27,7 +27,3 @@ int Date::getDay() {
 void Date::setDay(int day) {
 	  _day = day;
 }
-int main()
-{
-	return 0;
-}

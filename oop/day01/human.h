@@ -17,12 +17,12 @@ private:
 	Human * _father;
 	int _health_level;
 	int _spirit;
-/*
+
 protected:
-	virtual void Work();
-	virtual void Party();
-	virtual void Dance();
-*/
+	virtual void Work() = 0;
+	virtual void Party() = 0;
+	virtual void Dance() = 0;
+
 public:
 	char * Speak();
 	void Walk();
