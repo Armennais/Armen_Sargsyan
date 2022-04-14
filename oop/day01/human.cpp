@@ -9,25 +9,38 @@ void Human::Eat(Food _food)
 		_spirit += 0.5;
 	}else if(_food == Fagottini || _food == Negrito )
 	{
-		_health_level--;
-		_spirit -= 0.2;
+		if(_health_level > 0 && _health_level < 100)
+		{
+			_health_level--;
+			_spirit -= 0.2;
+		}
 	}
 
 }
 void Human::Walk()
 {
+	_fatigue--;
 	_health_level++; 
 }
 
 void Human::Drink(drink _drink)
 {
+	unsigned int count_coffe = 0;
 	if(_drink == Jaguar || _drink == Beer)
 	{
 		_health_level--;
 		_spirit += 3;
 	}else if (_drink == Coffee )
 	{
-		_health_level--;
+		count_coffee++;
+		_fatique++;
+		if(count_coffee <= 5)
+		{
+			_health_level++;
+		}else 
+		{
+			_health_level--;	
+		}
 	}else if(_drink == Tea)
 	{
 		_health_level++;

@@ -16,7 +16,8 @@ private:
 	Human * _mother;
 	Human * _father;
 	int _health_level;
-	int _spirit;
+	int _fatigue;//Hognatsutyun
+	int _spirit;//hamadzakutyun
 
 protected:
 	virtual void Work() = 0;
