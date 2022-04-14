@@ -1,15 +1,22 @@
-#ifndef bazmandam_h
-#define bazmandam_h
-
-class Bazmandam
+class Poly
 {
 private:
-	int _member_count;
-	int _number;
+	double* m_coefArr;
+	int m_arrSize;
+
 public:
-	Bazmandam(int members_count, int degree);
-	void Add();
-	void Multiply();
-	void Subsract();
+	Poly();
+	Poly(int degree);
+	Poly(double* coefArr, int coefCount);
+	Poly(Poly& other);
+	~Poly();
+
+	Poly Add(Poly& other);
+	Poly Subtract(Poly& other);
+	Poly Multiply(Poly& other);
+
+	int degree();
+	void at(double value);
+
+	void displayPoly();
 };
-#endif //bazmandam_h 

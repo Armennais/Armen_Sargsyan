@@ -1,85 +1,155 @@
-#include "bazmandam.h"
 #include <iostream>
-#include <string>
-#include <math.h>
+#include "bazmandam.h"
 
 using namespace std;
 
-Bazmandam::Bazmandam(int member_count, int number)
+Poly::Poly()
 {
-	_member_count = member_count;
-	_number = number;
+	m_arrSize = 1;
+	m_coefArr = new double[1];
+	m_coefArr[0] = 0;
 }
-void Bazmandam::Add()
+
+Poly::Poly(int degree)
 {
-	int member = _member_count;
-	string poly;
-	int answer = 0;
-	while(member > 0)
+	m_arrSize = degree + 1;
+	m_coefArr = new double[m_arrSize];
+	for (int i = 0;i < m_arrSize; i++)
 	{
-		int coef;
-		cout << "Input coef: " ;
-		cin >> coef;
-		answer += coef*pow(_number, member);
-		poly += ( to_string(coef) + "*x^" + to_string(member) + "+");
-		member--;
+		m_coefArr[i] = 0;
 	}
-	poly.pop_back();
-	cout << poly + "=" + to_string(answer) << endl;
 }
-void Bazmandam::Subsract()
+
+Poly::Poly(double* coefArr, int coefCount)
 {
-	 int member = _member_count;
- 	 string poly;
-	 int answer = 0;
-	 while(member > 0)
-	 {
-		 int coef;
-		 cout << "Input coef: " ;
-		 cin >> coef;
-		 answer -= coef*pow(_number, member);
-		 poly += (to_string(coef) + "*x^" + to_string(member) +  "-");
-		 member--;
-	 }			
-	 poly.pop_back();	
-	 cout << poly + "=" + to_string(answer) << endl;
-}
-void Bazmandam::Multiply()
-{
-	int member = _member_count;
-	string poly;
-	int answer = 0;
-	while(member > 0)
+	m_arrSize = coefCount;
+	m_coefArr = new double[coefCount];
+	for (int i = 0; i < coefCount; i++)
 	{
-		int coef;
-		cout << "Input coef: " ;
-		cin >> coef;
-		answer *= coef*pow(_number, member);
-		poly += (to_string(coef) + "*x^" + to_string(member) +  "*");
-		member--;
+		m_coefArr[i] = coefArr[i];
 	}
-	poly.pop_back();
-	cout << poly + "=" + to_string(answer) << endl;
 }
-int main()
+Poly::Poly(Poly& other)
 {
-	int member_count;
-	int number;
-	char check;
-	cout << "Input count of poly: ";
-	cin >> member_count;
-        cout << "Input number: ";
-	cin >> number;
-	Bazmandam p (member_count, number);		     
-	do{
-	cout << "Input */+/- : ";
-	cin >> check;
-	if(check == '+')
-		p.Add();
-	else if(check == '-')
-		p.Subsract();
-	else if(check == '*')
-		p.Multiply();
-	}while((check != '*') || (check != '-') || (check != '*'));
-	return 0;
+	m_arrSize = other.m_arrSize;
+	m_coefArr = new double[m_arrSize];
+	for (int i = 0; i < m_arrSize; i++)
+	{
+		m_coefArr[i] = other.m_coefArr[i];
+	}
 }
+Poly::~Poly()
+{
+	delete[] m_coefArr;
+	m_arrSize = 0;
+	m_coefArr = nullptr;
+}
+
+Poly Poly::Add(Poly& other)
+{
+	int sizeOfAnswer = (m_arrSize >= other.m_arrSize) ? m_arrSize : other.m_arrSize;
+	Poly answer(sizeOfAnswer - 1);
+	if(m_arrSize >= other.m_arrSize)
+	{
+		for (int i = 0; i <  other.m_arrSize; i++)
+		{
+			answer.m_coefArr[i] = m_coefArr[i] + other.m_coefArr[i];
+		}
+		for (int i = other.m_arrSize; i < m_arrSize; i++)
+		{
+			answer.m_coefArr[i] = m_coefArr[i];
+		}	
+	}else
+	{
+		for (int i = 0;i < m_arrSize; i++)
+		{
+			answer.m_coefArr[i] = m_coefArr[i] + other.m_coefArr[i];
+		}
+		for (int i = m_arrSize;i < other.m_arrSize; i++)
+		{
+			answer.m_coefArr[i] = other.m_coefArr[i];
+		}
+	}
+	return answer;
+}
+
+Poly Poly::Subtract(Poly& other)
+{
+	int sizeOfAnswer = (m_arrSize >= other.m_arrSize) ? m_arrSize : other.m_arrSize;
+	        Poly answer(sizeOfAnswer - 1);
+		if(m_arrSize >= other.m_arrSize)
+		{
+			for (int i = 0; i <  other.m_arrSize; i++)
+			{
+				answer.m_coefArr[i] = m_coefArr[i] + other.m_coefArr[i];
+			}
+			for (int i = other.m_arrSize; i < m_arrSize; i++)
+			{
+				answer.m_coefArr[i] = m_coefArr[i];
+			}
+		}else
+		{
+			for (int i = 0;i < m_arrSize; i++)
+			{
+				answer.m_coefArr[i] = m_coefArr[i] + other.m_coefArr[i];
+			}
+			for (int i = m_arrSize;i < other.m_arrSize; i++)
+			{
+				answer.m_coefArr[i] = other.m_coefArr[i];
+			}
+		}
+		return answer;
+}
+Poly Poly::Multiply(Poly& other)
+{
+	int degreeOfAnswer = m_arrSize + other.m_arrSize - 2;
+	Poly answer(degreeOfAnswer);
+	for( int i = 0; i < m_arrSize; i++)
+	{
+		for( int j = 0; j < other.m_arrSize; j++)
+		{
+			answer.m_coefArr[i + j] += (m_coefArr[i] * other.m_coefArr[j]);
+		}
+	}
+	return answer;
+}
+
+int Poly::degree() { return m_arrSize - 1; }
+
+void Poly::displayPoly()
+{
+	int i;
+	for (i = m_arrSize - 1; i >= 1; i--)
+	{
+		if (m_coefArr[i] != 0)
+		{
+			cout << m_coefArr[i] << "x^" << i << " + ";
+		}
+	}
+	cout << m_coefArr[0];
+	cout << endl;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
