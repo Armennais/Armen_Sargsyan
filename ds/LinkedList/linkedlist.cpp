@@ -82,13 +82,14 @@ int List::getElement(const int position)
     return 0;
 }
 
-void List::printList( List& n) {
+ostream& operator << (ostream &out, const List& n)
+{
     Node * temp;
     temp = n.head;
-  while (temp != NULL) {
-    cout << temp->data << " ";
-    temp = temp->next;
-  }
-  cout << endl;
-
+    while (temp != NULL) {
+        out << temp->data << " ";
+        temp = temp->next;
+    }
+    out << endl;
+return out;
 }

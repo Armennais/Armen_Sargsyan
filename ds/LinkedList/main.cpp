@@ -13,23 +13,13 @@ int main() {
         list.Add(num);
     }
     cout << "Print List Elements:\n";
-
-    // list.Add(1);
-    // list.Add(1);
-    // list.Add(1);
-    // list.Add(8);
-    // list.Add(1);
-    // list.Add(1);
-    // list.Add(1);
+    cout << list;
     // list.Add(1);
     // list.AddAt(4,2);
     // list.AddAt(4,5);
-    list.printList(list);
     // list.removeAt(2);
     // cout << list.GetCount() << endl;
     // cout << list.getElement(3) << endl;
-    // list.printList(list);
     // list.removeAll();
-    // list.printList(list);
 
 }

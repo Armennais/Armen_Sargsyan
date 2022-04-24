@@ -20,10 +20,10 @@ class List{
         int GetCount(){return count;}
         void Add(int );
         void AddAt(int , int );
-        void printList( List& );
         void removeAt(int );
         void removeAll();
         int getElement(const int );
+		friend ostream& operator << (ostream &out, const List&);
         List()
         {
             count = 0;
@@ -33,7 +33,6 @@ class List{
         {
             removeAll();
         }
-    
 };
 
 #endif // __LINKEDLIST_H__
