@@ -14,18 +14,12 @@ int main() {
         list.Add(num);
     }
     cout << "Print List Elements:\n";
-    list.printList(list);
-
+    cout << list;
 
     // list.AddAt(4,2);
-    // list.printList(list);
     // list.removeAt(2);
-    // list.printList(list);
     // cout << list.GetCount() << endl;
-    // list.printList(list);
     // cout << list.getElement(3) << endl;
-    // list.printList(list);
     // list.removeAll();
-    // list.printList(list);
 
 }

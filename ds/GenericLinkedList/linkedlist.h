@@ -25,6 +25,9 @@ class List{
         void removeAt(int );
         void removeAll();
         T getElement(const int );
+        template <class Type>
+        friend ostream& operator << (ostream &out, const List<Type>& );
+        
         List()
         {
             count = 0;

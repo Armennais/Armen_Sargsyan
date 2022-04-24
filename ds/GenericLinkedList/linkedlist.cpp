@@ -93,5 +93,16 @@ void List<T>::printList( List<T>& n) {
     temp = temp->next;
   }
   cout << endl;
-
+}
+template<class T>
+ostream& operator << (ostream &out, const List<T>& n)
+{
+    Node<T> * temp;
+    temp = n.head;
+    while (temp != NULL) {
+        out << temp->data << " ";
+        temp = temp->next;
+    }
+    out << endl;
+return out;
 }
