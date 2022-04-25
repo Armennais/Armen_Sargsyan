@@ -1,13 +1,17 @@
 #include <iostream>
 #include "linkedlist.h"
 using namespace std;
-template<class T>
-void List<T>::Add( T data) {
-    if (head == NULL) {
-            head = new Node<T>(data);   
-    }else
+
+template <class T>
+void List<T>::Add(T data)
+{
+    if (head == NULL)
     {
-        Node<T>* new_node = head;
+        head = new Node<T>(data);
+    }
+    else
+    {
+        Node<T> *new_node = head;
         while (new_node->next != nullptr)
         {
             new_node = new_node->next;
@@ -16,62 +20,72 @@ void List<T>::Add( T data) {
     }
     count++;
 }
-template<class T>
-void List<T>::AddAt(T data, int position) 
-    {
-        if (position == 0)
-        {
-            head = new Node<T>(data,head);
-        }else
-        {
-            Node<T> * prev = head;
-            for (int i = 0; i < position-1; i++)
-            {
-                prev = prev->next;    
-            }
-            Node<T> * newNode = new Node<T>(data,prev->next);
-            prev->next = newNode;
-        }   
-        count++;    
-    }
-template<class T>
-void List<T>::removeAt(int position)
+
+template <class T>
+void List<T>::AddAt(T data, int position)
 {
-    if(position == 0)
+    if (position == 0)
     {
-        Node<T>* first = head;
-        head = head->next;
-        delete first;
-    }else
+        head = new Node<T>(data, head);
+    }
+    else
     {
-        Node<T> * prev = head;
+        Node<T> *prev = head;
         for (int i = 0; i < position - 1; i++)
         {
             prev = prev->next;
         }
-        Node<T> * newPrev = prev->next;
+        Node<T> *newNode = new Node<T>(data, prev->next);
+        prev->next = newNode;
+    }
+    count++;
+}
+
+template <class T>
+void List<T>::removeAt(int position)
+{
+    if (position == 0)
+    {
+        Node<T> *first = head;
+        head = head->next;
+        delete first;
+    }
+    else
+    {
+        Node<T> *prev = head;
+        for (int i = 0; i < position - 1; i++)
+        {
+            prev = prev->next;
+        }
+        Node<T> *newPrev = prev->next;
         prev->next = newPrev->next;
         delete newPrev;
-        
     }
     count--;
 }
-template<class T>
+
+template <class T>
 void List<T>::removeAll()
 {
     while (count)
     {
-        Node<T> * node = head;
+        Node<T> *node = head;
         head = head->next;
         delete node;
-     count--;
+        count--;
     }
-  
 }
-template<class T>
-T List<T>::getElement(const int position)
+
+template <class T>
+T List<T>::getElement(const int position) const
 {
-    Node<T> * check = head;
+
+    if (position < 0 || position > GetCount())
+    {
+        runtime_error e((char *)"Error! Index must be in list range");
+        throw e;
+    }
+    Node<T> *check = head;
     int count = 0;
     while (check != nullptr)
     {
@@ -82,27 +96,19 @@ T List<T>::getElement(const int position)
         count++;
         check = check->next;
     }
-    return 0;
+    return check->data;
 }
-template<class T>
-void List<T>::printList( List<T>& n) {
-    Node<T>* temp;
-    temp = n.head;
-  while (temp != NULL) {
-    cout << temp->data << " ";
-    temp = temp->next;
-  }
-  cout << endl;
-}
-template<class T>
-ostream& operator << (ostream &out, const List<T>& n)
+
+template <class T>
+ostream &operator<<(ostream &out, const List<T> &n)
 {
-    Node<T> * temp;
+    Node<T> *temp;
     temp = n.head;
-    while (temp != NULL) {
+    while (temp != NULL)
+    {
         out << temp->data << " ";
         temp = temp->next;
     }
     out << endl;
-return out;
+    return out;
 }
