@@ -31,7 +31,7 @@ template <typename T>
 T Stack<T>::pop()
 {
     T return_value = peek();
-    _list.removeAt(_list.getElement(_list.GetCount() - 1));
+    _list.removeAt(_list.GetCount() - 1);
     return return_value;
 }
 
