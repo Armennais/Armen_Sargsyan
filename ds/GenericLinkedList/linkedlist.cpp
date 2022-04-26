@@ -81,7 +81,7 @@ template <class T>
 T List<T>::getElement(const int position) const
 {
 
-    if (position < 0 || position > GetCount())
+    if (position < 0 || position >= GetCount())
     {
         throw invalid_argument("Error! Index must be in list range");
     }
