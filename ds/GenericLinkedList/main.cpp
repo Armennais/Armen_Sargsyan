@@ -6,8 +6,6 @@ using namespace std;
 
 int main()
 {
-    try
-    {
         List<int> list;
         int num;
         srand(time(0));
@@ -19,9 +17,11 @@ int main()
         cout << "Print List Elements:\n";
         cout << list;
 
+    try
+    {
         cout << list.getElement(55);
     }
-    catch (const runtime_error &e)
+    catch (const invalid_argument &e)
     {
         cout << e.what() << '\n';
     }

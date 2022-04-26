@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdexcept>
 #include "linkedlist.h"
 using namespace std;
 
@@ -82,8 +83,7 @@ T List<T>::getElement(const int position) const
 
     if (position < 0 || position > GetCount())
     {
-        runtime_error e((char *)"Error! Index must be in list range");
-        throw e;
+        throw invalid_argument("Error! Index must be in list range");
     }
     Node<T> *check = head;
     int count = 0;
