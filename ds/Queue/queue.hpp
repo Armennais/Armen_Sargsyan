@@ -31,7 +31,7 @@ template <typename T>
 T Queue<T>::pop()
 {
     T return_value = front();
-    _list.removeAt(_list.GetCount() - 1);
+    _list.removeAt(0);
     return return_value;
 }
 
