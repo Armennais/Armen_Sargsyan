@@ -10,7 +10,7 @@ int main()
     {
         cout << stack.peek() << endl;
     }
-    catch (const runtime_error &e)
+    catch (const invalid_argument &e)
     {
         cout << e.what() << '\n';
     }

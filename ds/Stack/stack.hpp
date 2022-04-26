@@ -2,7 +2,7 @@
 #define __STACK_H__
 
 #include "../GenericLinkedList/linkedlist.h"
-
+#include <stdexcept>
 template <typename T>
 class Stack
 {
@@ -40,8 +40,7 @@ T Stack<T>::peek() const
 {
     if (isEmpty())
     {
-        runtime_error e((char *)"Error! Stack is Empty");
-        throw e;
+        throw invalid_argument("Error! Stack is Empty");
     }
     return _list.getElement(_list.GetCount() - 1);
 }
