@@ -9,13 +9,14 @@ int genNumber(int a = -1000, int b = 1000)
 {
     return gen() % (b - a + 1) + a;
 }
+
 void swap(int &a, int &b);
 void insertionSort(int *arr, int length);
 void bubbleSort(int *a, int n);
 void merge(int *a, int l, int m, int r);
 void mergeSort(int *arr, int l, int r);
-
-
+int divide(int* arr, int start, int end);
+void quickSort(int *arr, int start, int end);
 
 int main()
 {
@@ -23,11 +24,13 @@ int main()
     int iarray[SIZE];
     int barray[SIZE];
     int marray[SIZE];
+    int qarray[SIZE];
     for (int i = 0; i < SIZE; i++)
     {
         iarray[i] = genNumber();
         barray[i] = iarray[i];
         marray[i] = iarray[i];
+        qarray[i] = iarray[i];
     }
     // insertion sort
     clock_t start_time = clock();
@@ -46,6 +49,12 @@ int main()
     start_time = clock();
     mergeSort(marray, 0 , SIZE);
     cout << "Merge sort time := "
+         << 1000.0 * (double)(clock() - start_time) / CLOCKS_PER_SEC
+         << "ms\n";
+    //quick sort
+    start_time = clock();
+    quickSort(qarray, 0 , SIZE);
+    cout << "Quick sort time := "
          << 1000.0 * (double)(clock() - start_time) / CLOCKS_PER_SEC
          << "ms\n";
     return 0;
@@ -94,6 +103,7 @@ void merge(int *a, int l, int m, int r)
     int second = m + 1;
     int base = 0;
     int *marr = new int[r - l + 1];
+
     while (first <= m && second <= r)
     {
         while (first <= m && a[first] <= a[second])
@@ -110,7 +120,6 @@ void merge(int *a, int l, int m, int r)
             second++;
         }
     }
-
     if (second == r + 1)
     {
         for (int i = first; i <= m; i++)
@@ -127,12 +136,11 @@ void merge(int *a, int l, int m, int r)
             base++;
         }
     }
-
     for (int i = 0; i <= r - l; i++)
     {
         a[i + l] = marr[i];
     }
-
+    //delete 
     delete[] marr;
 }
 
@@ -145,4 +153,44 @@ void mergeSort(int *arr, int l, int r)
         mergeSort(arr, m + 1, r);
         merge(arr, l, m, r);
     }
+}
+
+int divide(int* arr, int start, int end)
+{
+    int pivot = arr[start];
+	int count = 0;
+    //check number index that bisgger pivot
+	for (int i = start + 1; i <= end; i++) {
+		if (arr[i] <= pivot)
+			count++;
+	}
+	int pivotIndex = start + count;
+	swap(arr[pivotIndex], arr[start]);
+	int i = start, j = end;
+
+	while (i < pivotIndex && j > pivotIndex) {
+
+		while (arr[i] <= pivot) {
+			i++;
+		}
+
+		while (arr[j] > pivot) {
+			j--;
+		}
+
+		if (i < pivotIndex && j > pivotIndex) {
+			swap(arr[i++], arr[j--]);
+		}
+	}
+
+	return pivotIndex;
+}
+
+void quickSort(int *arr, int start, int end)
+{
+	if (start >= end)
+		return;
+	int q = divide(arr, start, end);
+	quickSort(arr, start, q - 1);
+	quickSort(arr, q + 1, end);
 }
