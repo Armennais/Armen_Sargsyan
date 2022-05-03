@@ -54,7 +54,9 @@ int main()
 }
 int SumOfNodes(Node *root){
     if (root == NULL)
-    return 0;
+    {
+        return 0;
+    }
     return (root->_data + SumOfNodes(root->_left) + SumOfNodes(root->_right));
 }
 //Find Maximal Node
