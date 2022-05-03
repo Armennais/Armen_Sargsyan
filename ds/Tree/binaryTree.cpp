@@ -17,11 +17,14 @@ public:
         _right = nullptr;
     }
 };
+
 void InsertNode(Node* root, int data);
 int findMaxNode(Node* root);
 int findMinNode(Node* root);
 void _dfs(Node *root);
 void _bfs(Node *root);
+int SumOfNodes(Node *root);
+
 int main()
 {
     Node *root = new Node(50);
@@ -45,7 +48,14 @@ int main()
     cout  << findMaxNode(root) << endl;
     cout << "Minimum number of Tree is: ";
     cout << findMinNode(root);
+
+    cout << "\n Sum is: " << SumOfNodes(root) << endl;
     return 0;
+}
+int SumOfNodes(Node *root){
+    if (root == NULL)
+    return 0;
+    return (root->_data + SumOfNodes(root->_left) + SumOfNodes(root->_right));
 }
 //Find Maximal Node
 int findMaxNode(Node* root) {
