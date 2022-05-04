@@ -23,7 +23,7 @@ public:
 
 class Tree
 {
-    private:
+private:
     Node *root;
     void _dfs(Node *_root)
     {
@@ -36,11 +36,36 @@ class Tree
 
 public:
     Tree(int);
+    Tree(){
+    }
     bool search(int);
+    void deleteNode(int value);
+    bool ancestorTree(int arr[][3],int );
+    
     void insertRecursive(int value){ root->insertRecursive(value); }
     void bfs();
     void dfs();
 };
+
+bool Tree::ancestorTree(int  arr[][3],int n)
+{
+    int count = 0;
+    for (int  i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if(arr[i][j] == 1){
+                count++;
+            }
+            if((arr[i][j] == 1 && arr[j][i] == 1) || (arr[i][j] == 1 && i == j) || (count > 2 ))
+            {
+                return false;
+            }
+            
+        }        
+    }
+    return true;
+}
 
 Tree::Tree(int value)
 {
@@ -71,6 +96,66 @@ bool Tree::search(int value)
     }
 
     return false;
+}
+
+void Tree::deleteNode(int value)
+{
+    if (!root)
+    {
+        return;
+    }
+
+    Node *current = root;
+    Node *prev = NULL;
+
+    while (current != NULL && current->_data != value)
+    {
+        prev = current;
+        if (value < current->_data)
+        {
+            current = current->_left;
+        }
+        else
+        {
+            current = current->_right;
+        }
+    }
+
+    if (current->_left == NULL || current->_right == NULL)
+    {
+        Node *newCurrent = (current->_left == NULL) ? current->_right : current->_left;
+
+        if (current == prev->_left)
+        {
+            prev->_left = newCurrent;
+        }
+        else
+        {
+            prev->_right = newCurrent;
+        }
+    }
+    else
+    {
+        Node *min = NULL;
+        Node *temp = current->_right;
+
+        while (temp->_left != NULL)
+        {
+            min = temp;
+            temp = temp->_left;
+        }
+
+        if (min == NULL)
+        {
+            current->_right = temp->_right;
+        }
+        else
+        {
+            min->_left = temp->_right;
+        }
+
+        current->_data = temp->_data;
+    }
 }
 
 void Tree::bfs()
