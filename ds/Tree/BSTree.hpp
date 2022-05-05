@@ -2,6 +2,7 @@
 #define __BSTREE_H__
 
 #include <iostream>
+#include <vector>
 #include <queue>
 using namespace std;
 
@@ -24,7 +25,6 @@ public:
 class Tree
 {
 private:
-    Node *root;
     void _dfs(Node *_root)
     {
         if (_root == NULL)
@@ -35,35 +35,87 @@ private:
     }
 
 public:
+    Node *root;
     Tree(int);
-    Tree(){
+    Tree()
+    {
     }
     bool search(int);
     void deleteNode(int value);
-    bool ancestorTree(int arr[][3],int );
-    
-    void insertRecursive(int value){ root->insertRecursive(value); }
+    void insert(int);
+    bool ancestorTree(int **, int, vector<int> &);
+    int getMatrixRoot(int **, int);
+    void insertRecursive(int value)
+    {
+        root->insertRecursive(value);
+    }
     void bfs();
     void dfs();
 };
 
-bool Tree::ancestorTree(int  arr[][3],int n)
+int Tree::getMatrixRoot(int **arr, int n)
 {
-    int count = 0;
-    for (int  i = 0; i < n; i++)
+    int a = 0;
+    int root;
+    bool checkToStop = false;
+    for (int i = 0; i < n; i++)
     {
+        int count = 0;
         for (int j = 0; j < n; j++)
         {
-            if(arr[i][j] == 1){
+            if (arr[j][i] == 0)
+            {
                 count++;
             }
-            if((arr[i][j] == 1 && arr[j][i] == 1) || (arr[i][j] == 1 && i == j) || (count > 2 ))
+            if (count == n)
+            {
+                a++;
+                if (a > 1)
+                {
+                    checkToStop = false;
+                }
+                else
+                {
+                    checkToStop = true;
+                    root = i;
+                }
+            }
+        }
+    }
+
+    return checkToStop ? root : -1;
+}
+
+bool Tree::ancestorTree(int **arr, int n, vector<int> &nodes)
+{
+    int getRoot = getMatrixRoot(arr, n);
+
+    for (int i = 0; i < n; i++)
+    {
+        int count = 0;
+        for (int j = 0; j < n; j++)
+        {
+            if (arr[i][j] == 1)
+            {
+                count++;
+            }
+            if ((arr[i][j] == 1 && arr[j][i] == 1) || getRoot == -1)
             {
                 return false;
             }
-            
-        }        
+            if (arr[i][j] == 1)
+            {
+                nodes.push_back(j);
+            }
+        }
+        if (count > 2)
+        {
+            return false;
+        }
     }
+
+    root = new Node(getRoot);
+
     return true;
 }
 
@@ -195,6 +247,42 @@ void Tree::dfs()
     _dfs(root->_right);
 }
 
+void Tree::insert(int value)
+{
+    if (!root)
+    {
+        return;
+    }
+
+    queue<Node *> queue;
+    queue.push(root);
+
+    while (!queue.empty())
+    {
+        Node *current = queue.front();
+        queue.pop();
+
+        if (current->_left)
+        {
+            queue.push(current->_left);
+        }
+        else
+        {
+            current->_left = new Node(value);
+            break;
+        }
+
+        if (current->_right)
+        {
+            queue.push(current->_right);
+        }
+        else
+        {
+            current->_right = new Node(value);
+            break;
+        }
+    }
+}
 
 void Node::insertRecursive(int value)
 {
