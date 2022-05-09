@@ -27,6 +27,6 @@ int main()
     graph->deleteVertex(4);
     graph->printMatrix();
     graph->nodeNeighbours(3);
-    // graph->nodeConnections(3);
+    graph->nodeConnections(3);
     return 0;
 }

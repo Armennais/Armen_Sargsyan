@@ -115,16 +115,14 @@ void Graph::nodeNeighbours(int vertex)
 
 void Graph::nodeConnections(int vertex)
 {
-    // TODO
-    int tempVertex = 0;
+    cout << "Connected nodes : ";
     for (int i = 0; i < adjMatrix.size(); i++)
     {
-        if (adjMatrix[vertex][i] == 1 && adjMatrix[vertex][i])
+        if (adjMatrix[i][vertex] == 1)
         {
             cout << i << " ";
-            nodeConnections(i);
         }
-        }
+    }
     cout << endl;
 }
 
