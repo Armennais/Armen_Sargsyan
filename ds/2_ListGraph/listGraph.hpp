@@ -35,7 +35,6 @@ Graph::Graph() {
 
 Graph::~Graph() {
   _size = 0;
-  delete[] _adjList;
 }
 
 void Graph::outOfRangeException(int index) {
