@@ -17,7 +17,7 @@ int main()
     graph->addEdge(2, 3, 6);
     graph->addEdge(6, 4, 5);
     graph->addEdge(9, 5, 6);
-    graph->dijkstra(0);
+    graph->dijkstra(5);
     graph->printMatrix();
     cout << endl
          << endl;

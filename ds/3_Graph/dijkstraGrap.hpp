@@ -86,10 +86,7 @@ void Graph::dijkstra(int start)
     for (int i = 0; i < _verticesCount; i++)
     {
         int m = miniDist(distance, isVisited);
-        if (distance[m] == INT_MAX)
-        {
-            break;
-        }
+       
         for (int k = 0; k < _verticesCount; k++)
         {
             if (adjMatrix[m][k] != INT_MAX && distance[m] != INT_MAX && (distance[m] + adjMatrix[m][k]) < distance[k])
