@@ -117,7 +117,7 @@ void HashTable::insert(string key, string value) {
 void HashTable::remove(string key) {
   int index = hashFunction(key);
 
-  for (int i = _capacity - 1; i >= index; i--) {
+  for (int i = index; i >= _capacity; i++) {
     if (_table[i] && _table[i]->_key == key) {
       _table[i] = NULL;
       break;
