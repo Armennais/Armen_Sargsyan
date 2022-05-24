@@ -152,8 +152,10 @@ void LinkedList<T>::removeAtIndex(int index) {
 
 template<typename T>
 void LinkedList<T>::removeAll() {
-  while (_size - 1 > 0) {
-    removeAtIndex(_size);
+  while (_head->_next) {
+    Node<T>* temporary_node = _head->_next;
+    delete _head;
+    _head = temporary_node;
   }
 }
 

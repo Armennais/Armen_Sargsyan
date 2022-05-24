@@ -1,7 +1,7 @@
 
 #include <iostream>
-#include "linkedlist.h"
-#include "linkedlist.cpp"
+#include "linkedlist.hpp"
+
 using namespace std;
 
 int main()

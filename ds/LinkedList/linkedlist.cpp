@@ -1,5 +1,7 @@
 #include <iostream>
+#include <stdexcept>
 #include "linkedlist.h"
+
 using namespace std;
 
 void List::Add(int data)

@@ -48,12 +48,13 @@ void MyVector<T>::AddBack(T value)
     if (getSize() < getCapacity()) 
     {
         arr[getSize() + 1] = value;
-        size++;
     }
     else
     {
         AddAt(value,getSize());
+
     }
+    size++;
 }
 
 template<typename T>
