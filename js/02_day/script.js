@@ -40,7 +40,7 @@ console.log("sum: " + sum);
 function vowelCount(str1) {
 	let vowelList = 'aeiou';
 	let count = 0;
-	for(var x = 0; x < str1.length; x++) {
+	for(let x = 0; x < str1.length; x++) {
 		if(vowelList.indexOf(str1[x]) !== -1) {
 			count += 1;
 		}
@@ -55,7 +55,7 @@ function SummPositive(numbers) {
 		positive: 0,
 		negative: 0,
 	}
-	for(var i = 0; i < numbers.length; i++) {
+	for(let i = 0; i < numbers.length; i++) {
 		if(numbers[i] < 0) {
 			myObj.negative += numbers[i];
 		} else {
