@@ -11,14 +11,23 @@ const num_arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 function foo(arr, num) {
 	const newArr = [];
-	while(num_arr.length) {
-		newArr.push(`[ ${num_arr.splice(0,num)} ]`);
-	}
-	return newArr;
+    let i = 0;
+    if(num == 0)
+    {
+        return arr
+    }else{
+	    while(i < num_arr.length) {
+            newArr.push(arr.slice(i,num + i));
+            i+=num;
+	    }
+	    return newArr;
+    }
 }
-console.log(foo(num_arr, 4));
+console.log(foo(num_arr, 0));
 
 // 3. Գրել ֆունկցիա, որը արգումենտում կստանա օբյեկտ ({}) և կվերադարձնի օբյեկտի բոլոր այն արժեքների գումարը որոնք հանդիսանում են թիվ.
+
+
 function getSum(obj) {
 	let sum = 0;
 	for(let el in obj) {
@@ -28,6 +37,7 @@ function getSum(obj) {
 	}
 	return sum;
 }
+const getSum = obj => Object.values(obj).filter(t => typeof t === 'number').reduce((a, b) => a + b);
 let myObj = {
 	a: 1,
 	b: 2,
@@ -57,7 +67,8 @@ function SummPositive(numbers) {
 		negative: 0,
 	}
 	for(let i = 0; i < numbers.length; i++) {
-		if(numbers[i] < 0) {
+		// Math.sign(numbers[i])?myObj.negative += numbers[i]:myObj.positive += numbers[i];
+        if(numbers[i] < 0) {
 			myObj.negative += numbers[i];
 		} else {
 			myObj.positive += numbers[i];
@@ -90,15 +101,16 @@ const array = [{
 	name: 'Name one',
 	city: 'Erevan',
 }, ];
-const unique = Array.from(new Set(array.map(item => item.city)));
+// const unique = Array.from(new Set(array.map(item => item.city)));
+const unique = [...new Set(array.map(item => item.city))];
 console.log(unique);
 
 
 // 7. Գրել ֆունկցիա, որը կստանա երկու արգումենտ (string)։ Ֆունկցիան պետք է ստուգի տրված string-ները անագրամ են թե ոչ։
 //    Պետք է ստուգումը կատարվի case insensitive և հատուկ սիմվոլները ignore արվի։
 function isCompare (a, b) {
-    let tempStr1 = a.split("").sort().join(""),
-        tempStr2 = b.split("").sort().join("");
+    let tempStr1 = a.replace(/\W/g,'').toLowerCase().split("").sort().join(""),
+        tempStr2 = b.replace(/\W/g,'').toLowerCase().split("").sort().join("");
     
     return tempStr1 === tempStr2 ;
 }
