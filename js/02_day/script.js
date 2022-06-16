@@ -1,7 +1,4 @@
 
-
-
-
 // 1. Գրել ֆունկցիա, որը արգումենում պետք է ստանա string և վերադարձնի նույն string-ը, բայց առաջին բառը մեծատառերով։
 function firstWordToUppercase(word) {
 	let word1 = word.split(" ");
@@ -95,6 +92,7 @@ const array = [{
 }, ];
 const unique = Array.from(new Set(array.map(item => item.city)));
 console.log(unique);
+
 
 // 7. Գրել ֆունկցիա, որը կստանա երկու արգումենտ (string)։ Ֆունկցիան պետք է ստուգի տրված string-ները անագրամ են թե ոչ։
 //    Պետք է ստուգումը կատարվի case insensitive և հատուկ սիմվոլները ignore արվի։
