@@ -1,4 +1,5 @@
 
+
 // 1. Գրել ֆունկցիա, որը արգումենում պետք է ստանա string և վերադարձնի նույն string-ը, բայց առաջին բառը մեծատառերով։
 function firstWordToUppercase(word) {
 	let word1 = word.split(" ");
@@ -28,16 +29,17 @@ console.log(foo(num_arr, 0));
 // 3. Գրել ֆունկցիա, որը արգումենտում կստանա օբյեկտ ({}) և կվերադարձնի օբյեկտի բոլոր այն արժեքների գումարը որոնք հանդիսանում են թիվ.
 
 
-function getSum(obj) {
-	let sum = 0;
-	for(let el in obj) {
-		if(!isNaN(obj[el])) {
-			sum += parseFloat(obj[el]);
-		}
-	}
-	return sum;
-}
-const getSum = obj => Object.values(obj).filter(t => typeof t === 'number').reduce((a, b) => a + b);
+// function getSum(obj) {
+// 	let sum = 0;
+// 	for(let el in obj) {
+// 		if(!isNaN(obj[el])) {
+// 			sum += parseFloat(obj[el]);
+// 		}
+// 	}
+// 	return sum;
+// }
+// const getSum = obj => Object.values(obj).filter(t => typeof t === 'number').reduce((a, b) => a + b);
+const getSum = obj => Object.values(obj).reduce((acc, n) => (acc += (typeof n === 'number') ? n : 0, acc), 0)
 let myObj = {
 	a: 1,
 	b: 2,
