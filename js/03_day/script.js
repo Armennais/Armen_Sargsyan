@@ -56,3 +56,45 @@ const mainFunc = (data) => {
 	}, 3000)
 };
 mainFunc(obj);
+
+function add(num1,num2){
+    if(num2 !== undefined){
+            return num1 + num2;
+        }
+        if(typeof(num1) === 'number'){
+        return function getAltSum(num3){
+            if(typeof(num3) === 'number')
+            {
+                return num1 + num3;
+            }
+            return getAltSum;
+        }
+    }
+    return add;
+}
+
+//7. input: number, number
+// output: number
+
+// Oրինակ:
+// add(7, 15) // -> 22
+// add(7)(15) // -> 22
+// add(7)()(15) // -> 22
+// add(7)()()()(15) // -> 22
+// add(7)()()()()()()()()()()()(15) // -> 22
+// add()(7)(15) // -> 22
+// add()()()()(7)(15) // -> 22
+// add()(7)()(15) // -> 22
+
+add()()()()()(7)()()()(15) // -> 22
+
+
+console.log(add(7, 15)) // -> 22
+console.log(add(7)(15))// -> 22
+console.log(add(7)()(15)) // -> 22
+console.log(add(7)()()()(15)) // -> 22
+console.log(add(7)()()()()()()()()()()()(15)) // -> 22
+console.log(add()(7)(15)) // -> 22
+console.log(add()()()()(7)(15)) // -> 22
+console.log(add()(7)()(15)) // -> 22
+console.log(add()()()()()(7)()()()(15)) // -> 22
