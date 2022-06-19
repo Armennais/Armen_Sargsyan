@@ -30,7 +30,9 @@ console.log(newlistWithBonus(obj));
 //       sanFrancisco: 14,
 //       ...
 //    }
-const getCount = (data) => data.reduce((acc, num) => ((acc[num.contact[0]] = acc[num.contact[0]] ? acc[num.contact[0]] + 1 : 1)), {});
+
+//HAVE ERROR
+// const getCount = (data) => data.reduce((acc, num) => ((acc[num.contact[0]] = acc[num.contact[0]] ? acc[num.contact[0]] + 1 : 1)), {});
 console.log(getCount(obj));
 // 6. Աշխատանքից ազատել աշխատակցին։
 //   a) Տպել "Սպասեք" տեքստը և 3 վայրկյան սպասել։ ( setTimeout() )
