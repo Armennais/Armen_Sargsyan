@@ -3,7 +3,10 @@ class Database {
         if(localStorage.getItem("db") === null){
             localStorage.setItem("db",JSON.stringify([]))
         }
-        return new Database();
+        if(!Database.instance){
+            Database.instance = new Database();
+        }
+        return Database.instance;
     }
     getTable(name){
         const db = JSON.parse(localStorage.getItem("db")) || [];
