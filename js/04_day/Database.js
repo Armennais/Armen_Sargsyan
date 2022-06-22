@@ -6,12 +6,12 @@ class Database {
         return new Database();
     }
     getTable(name){
-        const db = JSON.parse(localStorage.getItem("db"))  [];
+        const db = JSON.parse(localStorage.getItem("db")) || [];
         return db.find((n) => n.name === name);
     }
     createTable(name,columns,values){
         values.unshift(++id)
-        const db = JSON.parse(localStorage.getItem("db"))  [];
+        const db = JSON.parse(localStorage.getItem("db")) || [];
         if(!db.find((n) => n.name === name)){
             db.push({name: name,columns: columns,values: values});
             localStorage.setItem("db",JSON.stringify(db));
