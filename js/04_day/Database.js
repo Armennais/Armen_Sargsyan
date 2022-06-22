@@ -1,4 +1,5 @@
 class Database {
+    static instance = null;
     static get(){
         if(localStorage.getItem("db") === null){
             localStorage.setItem("db",JSON.stringify([]))
@@ -9,12 +10,12 @@ class Database {
         return Database.instance;
     }
     getTable(name){
-        const db = JSON.parse(localStorage.getItem("db")) || [];
-        return db.find((n) => n.name === name);
+        const db = JSON.parse(localStorage.getItem("db"))||[];
+        return new Table(db.find((n) => n.name === name));
     }
     createTable(name,columns,values){
         values.unshift(++id)
-        const db = JSON.parse(localStorage.getItem("db")) || [];
+        const db = JSON.parse(localStorage.getItem("db"))|| [];
         if(!db.find((n) => n.name === name)){
             db.push({name: name,columns: columns,values: values});
             localStorage.setItem("db",JSON.stringify(db));
