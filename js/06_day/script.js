@@ -5,18 +5,17 @@ const help = document.querySelector('#help')
 const again = document.querySelector('#again')
 const count = document.querySelector("#countValue");
 const highValue = document.querySelector("#highScoreValue");
+const wrong = document.querySelector("#wrong");
 console.log(randomNumber);
 let highScore = 20;
 let gethHighScoreValue = sessionStorage.getItem('highScore');
 
 if (gethHighScoreValue == null) {
     sessionStorage.setItem("highScore", String(0));
-    highValue.innerHTML = sessionStorage.getItem('highScore');
-
 } else {
     sessionStorage.setItem("highScore", gethHighScoreValue);
-    highValue.innerHTML = sessionStorage.getItem('highScore');
 }
+highValue.innerHTML = sessionStorage.getItem('highScore');
 console.log(highValue);
 
 function check(number, ramdomN) {
@@ -36,6 +35,8 @@ function guessNumber(number) {
         inputNumber.disabled = true;
         winLose.innerText = "You Lose";
     } else {
+        // wrong.textContent = "Wrong: ";
+        wrong.textContent  += number + " ";
         count.innerHTML -= 1;
         highScore -= 1;
         if (number > randomNumber && check(number, randomNumber)) {
@@ -57,5 +58,5 @@ inputNumber.addEventListener('keydown', function (event) {
 });
 again.addEventListener('click', function () {
     inputNumber.disabled = false;
-    return location.reload();
+    window.location.reload();
 })
