@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: cursive;
+    font-family: ui-monospace;
 }
 body {
     background-color: cadetblue;
@@ -14,7 +14,7 @@ body {
 
 .main {
     width: 800px;
-    height: auto;
+    height: 430px;
     margin: 80px auto;
     background-color: cornsilk;
     padding: 25px;
@@ -53,6 +53,7 @@ p#help {
     font-size: 30px;
     text-align: center;
     margin-top: 30px;
+    height: 30px;
 }
 p#winLose {
     font-size: 60px;
@@ -63,5 +64,11 @@ div#highScoreAndCount {
 }
 p#wrongAnswers {
     font-size: 30px;
+    font-weight: 900;
+}
+div#wrong {
+    border-top: 1px solid;
+    margin-top: 20px;
+    font-size: 20px;
     font-weight: 900;
 }
