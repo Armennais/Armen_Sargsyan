@@ -23,6 +23,7 @@ export const AppFC = () =>{
   const AddElem = (newPost) =>{
     setElem([...elem,newPost])
   }
+  console.log(elem)
   const[show,setShow] = useState(false);
   
 
