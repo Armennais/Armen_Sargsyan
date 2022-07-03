@@ -1,9 +1,9 @@
 import React, { useRef, useState } from "react";
 import ReactDOM from "react-dom";
-// import AppFC from "../App";
 import '../styles/Modal.css'
 import { list } from "./Film";
-const Modal =({onClose,show,addElem}) => {
+import img6 from '../cin.jpg'
+const Modal =({onClose,show,addElem,elem}) => {
     const[title,setTitle] = useState('')
     const[desc,setDesc] = useState('')
 
@@ -11,16 +11,14 @@ const Modal =({onClose,show,addElem}) => {
         return null
     }
     
-    const addElement = (e) => {
-        e.preventDefault();
+    const addElement = () => {
         const newFilm = {
-            id:7,
-            title:{title},
-            img:'',
-            description:{desc}   ,
-            // a:alertAAA")  
+            id:elem[elem.length - 1].id + 1,
+            title:title,
+            img:img6,
+            description:desc
         }  
-        // console.log(newFilm)
+
         addElem(newFilm)
     }
     return (

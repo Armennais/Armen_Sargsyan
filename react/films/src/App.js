@@ -22,7 +22,9 @@ export const AppFC = () =>{
 
   const AddElem = (newPost) =>{
     setElem([...elem,newPost])
+    list = elem
   }
+
   console.log(elem)
   const[show,setShow] = useState(false);
   
@@ -32,8 +34,8 @@ export const AppFC = () =>{
     <div className="AppFC">
       <p id="count">Count: {elem.length}</p>
       <input type="text" className="input" placeholder="Search" onChange={searchFilm}/>
-      <button onClick={() => setShow(true)}>Show Modal</button>
-      <Modal onClose={()=> setShow(false)}  show={show} addElem ={AddElem} />
+      <button onClick={() => setShow(true)}>Add Film</button>
+      <Modal onClose={()=> setShow(false)}  show={show} addElem ={AddElem} elem = {elem}/>
       <Film setElem={setElem} elem = {elem} /> 
      </div>
   )
