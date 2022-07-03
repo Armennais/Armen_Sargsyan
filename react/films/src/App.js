@@ -20,10 +20,9 @@ export const AppFC = () =>{
     setElem(filtered);
   },[searchText])
 
-  // const AddElem = () =>{
-  //   const element ="=";
-  //   setElem([...elem,element])
-  // }
+  const AddElem = (newPost) =>{
+    setElem([...elem,newPost])
+  }
   const[show,setShow] = useState(false);
   
 
@@ -33,8 +32,8 @@ export const AppFC = () =>{
       <p id="count">Count: {elem.length}</p>
       <input type="text" className="input" placeholder="Search" onChange={searchFilm}/>
       <button onClick={() => setShow(true)}>Show Modal</button>
-      <Modal onClose={()=> setShow(false)}  show={show} elem = {elem} setElem={setElem} />
-      <Film  value = {elem} setElem={setElem} elem = {elem} /> 
+      <Modal onClose={()=> setShow(false)}  show={show} addElem ={AddElem} />
+      <Film setElem={setElem} elem = {elem} /> 
      </div>
   )
 }
