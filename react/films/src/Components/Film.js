@@ -61,6 +61,7 @@ const Film = ({setElem,elem}) => {
                 ()=>{
                 deleteItem(e.id)
             }} />
+            
         </li>
     );
     return( 
