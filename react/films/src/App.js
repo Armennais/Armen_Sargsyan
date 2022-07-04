@@ -5,30 +5,24 @@ import './styles/App.css';
 import Button from './Components/Buttonn';
 import Modal from './Components/Modal';
 
-
 export const AppFC = () =>{
   const[searchText,setSearchText] = useState('')
-  const[newElement,setNewElement] = useState(list)
   const [elem,setElem] = useState(list);
-  // const[a,setA] = useState(elem);
   const searchFilm = (e) => {
     setSearchText(e.target.value)
   }
-
+  const[newElement,setNewElement] = useState(elem)
   useEffect(() =>{
     let filtered = !searchText ? newElement : newElement.filter((e) => e.title.toLowerCase().includes(searchText.toLowerCase()));
     setElem(filtered);
   },[searchText])
-
+  
   const AddElem = (newPost) =>{
-    setElem([...elem,newPost])
-    list = elem
+    setNewElement([...elem,newPost])
   }
 
-  console.log(elem)
   const[show,setShow] = useState(false);
   
-
   return(
 
     <div className="AppFC">
