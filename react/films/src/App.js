@@ -33,9 +33,8 @@ const AppFC = () =>{
     setAllFilms((allFilms) => allFilms.filter((i) => i.id !== index));
 }
 
-
+filtredList = filmElements
   const[show,setShow] = useState(false);
-  filtredList = filmElements
   return(
 
     <div className="AppFC">

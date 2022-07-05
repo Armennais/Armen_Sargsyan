@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{createContext} from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import './styles/index.css';
@@ -7,7 +7,7 @@ import Main from './main';
 import Layout from './Components/Layout';
 import FilmInfo from './Components/FilmInfo'
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
+export const filtredList = createContext([])
 root.render(
     
     <BrowserRouter >
@@ -16,8 +16,7 @@ root.render(
         <Route path='/' element = {<Layout/>}>
             <Route index element={<Main/>}/>
             <Route path='/films' element={<AppFC/>}/>
-            <Route path='/film/:id' element ={<FilmInfo />}>
-            </Route>
+            <Route path='/film/:id' element ={<FilmInfo />}/>
         </Route>
     </Routes>
     </BrowserRouter>
