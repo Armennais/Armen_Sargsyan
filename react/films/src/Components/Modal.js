@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import ReactDOM from "react-dom";
 import '../styles/Modal.css'
-import { list } from "./Film";
+import list  from "./FilmsList";
 import img6 from '../cin.jpg'
 const Modal =({onClose,show,addElem,elem}) => {
     const[title,setTitle] = useState('')
@@ -12,8 +12,10 @@ const Modal =({onClose,show,addElem,elem}) => {
     }
     
     const addElement = () => {
+        console.log(elem.length,"====elem LEnght")
+
         const newFilm = {
-            id:elem[elem.length - 1].id + 1,
+            id:elem.length,
             title:title,
             img:img6,
             description:desc
