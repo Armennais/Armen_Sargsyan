@@ -6,9 +6,10 @@ import './styles/App.css';
 import Button from './Components/Buttonn';
 import Modal from './Components/Modal';
 let filtredList = []
-export const AppFC = () =>{
+
+const AppFC = () =>{
   const[searchText,setSearchText] = useState('')
-  const [elem,setElem] = useState(list);
+  const [allFilms,setAllFilms] = useState(list);
   const [filmElements, setFilmElements] = useState([]);
   const searchFilm = (e) => {
     setSearchText(e.target.value)
@@ -16,27 +17,20 @@ export const AppFC = () =>{
   
   
   useEffect(() =>{
-    setFilmElements(!searchText ? elem : elem.filter((e) => e.title.toLowerCase().includes(searchText.toLowerCase())));
+    setFilmElements(!searchText ? allFilms : allFilms.filter((e) => e.title.toLowerCase().includes(searchText.toLowerCase())));
   },[searchText])
 
   useEffect(()=> {
-    setFilmElements(elem)
-  },[elem])
+    setFilmElements(allFilms)
+  },[allFilms])
   
   const AddElem = (newPost) =>{
     setShow(false)
 
-    setElem([...elem,newPost])
+    setAllFilms([...allFilms,newPost])
   }
   const deleteItem = (index) =>{
-    setElem((elem) => elem.filter((i) => i.id !== index));
-    console.log(elem)
-    console.log(index,"===Index")
-    for (let i = index; i < elem.length; i++) {
-    console.log(i,"===ID")
-
-      elem[i].id = elem[i].id - 1;
-    }
+    setAllFilms((allFilms) => allFilms.filter((i) => i.id !== index));
 }
 
 
@@ -48,7 +42,7 @@ export const AppFC = () =>{
       <p id="count">Count: {filmElements.length}</p>
       <input type="text" className="input" placeholder="Search" onChange={searchFilm}/>
       <Button value= "ADD"  onClick={() => setShow(true)} />
-      <Modal onClose={()=> setShow(false)}  show={show} addElem ={AddElem} elem = {elem}/>
+      <Modal onClose={()=> setShow(false)}  show={show} addElem ={AddElem} elem = {allFilms}/>
       <Film  elem = {filmElements} onClick ={deleteItem} /> 
      </div>
   )

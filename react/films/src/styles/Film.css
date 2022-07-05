@@ -12,3 +12,8 @@ img {
 li {
     list-style-type: none;
 }
+.more{
+    display: block;
+    font-size: 30px;
+    margin-top:10px ;
+}
