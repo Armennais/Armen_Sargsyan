@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import '../styles/Film.css';
 import Button from './Buttonn';
-import list from './FilmsList'
 import {Link} from 'react-router-dom'
 const Film = ({elem,onClick}) => {
     const listItems = elem.map((e,index) =>
@@ -15,8 +14,7 @@ const Film = ({elem,onClick}) => {
                 ()=>{
                 onClick(e.id)
             }} />
-            <Link className='more' key={e.id} to={`/film/${e.id}`}>more...</Link>
-            {/* <Button value = "Go To"  /> */}
+            <Link className='more' to={`${e.id}`}>more...</Link>
         </li>
     );
     return( 

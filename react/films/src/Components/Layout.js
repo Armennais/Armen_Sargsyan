@@ -4,11 +4,11 @@ import '../styles/index.css';
 const Layout = () => {
     return(
         <>
-        <nav className='navbar'>
-            <Link to="/">HOME</Link>
-            <Link to="/films">FILMS</Link>
-        </nav> 
-        <Outlet />
+            <nav className='navbar'>
+                <Link to="/">HOME</Link>
+                <Link to="/films">FILMS</Link>
+            </nav> 
+            <Outlet />
         </>
     )
 }

@@ -1,10 +1,10 @@
 import React from "react";
 import {Link} from 'react-router-dom';
-import './styles/Main.css';
+import '../styles/Main.css';
 const Main = () => {
     return(
         <div className="main">
-           <p> WELLCOME!!!</p>
+           <p> WELCOME!!!</p>
         </div>
     )
 }

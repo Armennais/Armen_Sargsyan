@@ -12,8 +12,17 @@ img {
 li {
     list-style-type: none;
 }
+.search{
+    width: 250px;
+    height: 30px;
+    padding: 5px;
+}
 .more{
     display: block;
-    font-size: 30px;
+    font-size: 20px;
     margin-top:10px ;
+}
+li>p{
+    font-size: 20px;
+    font-weight: 900;
 }
