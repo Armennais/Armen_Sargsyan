@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import { FilmContext } from "./Context";
 import list from "./ListMovies";
-import Main from "../pages/Main";
 import Layout from "./Layout";
+import Main from "../pages/Main";
 import FilmInfo from "../pages/FilmInfo";
-import Films from "../pages/Films";
+import Films from "../pages/FilmsPage";
 import NotFoundPage from "../pages/NotFoundPage";
 
 const AppFC = () => {
