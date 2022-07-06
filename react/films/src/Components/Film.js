@@ -3,7 +3,7 @@ import "../styles/Film.css";
 import Button from "./Buttonn";
 import { Link } from "react-router-dom";
 const Film = ({ elem, onClick }) => {
-  const listItems = elem.map((e, index) => (
+  const listItems = elem.map((e) => (
     <li key={e.id}>
       <h1>{e.title}</h1>
       <img src={e.img} />
