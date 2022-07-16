@@ -1,0 +1,280 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: Anton;
+  font-style: normal;
+  font-weight: 400;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* HEADER */
+
+header {
+  background: rgba(51, 51, 51, 0.8);
+  position: fixed;
+  display: flex;
+  justify-content: flex-start;
+  padding: 30px 55px;
+  width: 100%;
+  height: 100px;
+  z-index: 11;
+}
+
+header>img {
+  width: 31px;
+  height: 40px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.navbar>div {
+  margin: 0px 20px;
+}
+
+.navbar>img {
+  margin-right: 30px;
+}
+
+.navbar a {
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgb(255, 255, 255);
+}
+
+/* MAIN */
+
+main {
+  background-size: cover;
+  background-image: url("./../images/background.png");
+  height: 100vh;
+}
+
+.overlay {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+}
+
+.content {
+  margin-left: 213px;
+}
+
+.content>h1 {
+  font-size: 100px;
+  line-height: 151px;
+  color: rgb(255, 255, 255);
+}
+
+.content>h2 {
+  font-size: 30px;
+  line-height: 45px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgb(255, 255, 255);
+}
+
+.btn {
+  border: 2px solid rgb(255, 255, 255);
+  padding: 18px 100px;
+  background-color: unset;
+  font-size: 17px;
+  color: white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  border: 2px solid rgb(158, 150, 150);
+  color: rgb(158, 150, 150);
+}
+
+.navbar a:hover {
+  color: rgb(158, 150, 150);
+}
+
+/* ABOUT SECTION */
+
+section.about {
+  display: flex;
+  justify-content: space-around;
+  padding: 30px 0px 20px;
+}
+
+.about img {
+  position: absolute;
+  top: 90vh;
+  z-index: 9;
+}
+
+.about p {
+  font-family: "Open Sans";
+  font-size: 110%;
+  line-height: 162.68%;
+  text-align: justify;
+  color: rgb(0, 0, 0);
+  margin: 0px 15%;
+}
+
+.about h3 {
+  font-size: 25px;
+  line-height: 38px;
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
+  margin: 115px 0px 20px;
+}
+
+.text1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 560px;
+}
+
+/* CARDS SECTION */
+
+.card {
+  display: flex;
+  justify-content: space-around;
+  padding: 70px;
+  background-color: rgb(245, 245, 245);
+}
+
+.card_item ol {
+  padding-inline-start: 40px;
+  font-size: 30px;
+  line-height: 162.68%;
+  overflow-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.card img {
+  width: 100%;
+}
+
+.triangle {
+  display: flex;
+  justify-content: right;
+  margin-top: -25px;
+  margin-right: -23px;
+}
+
+.triangle-left {
+  border-top: 20px solid transparent;
+  border-right: 160px solid;
+  border-bottom: 20px solid transparent;
+}
+
+.triangle-right {
+  margin-left: -1px;
+  border-top: 20px solid transparent;
+  border-left: 25px solid;
+  border-bottom: 20px solid transparent;
+}
+
+.card_item {
+  position: relative;
+  width: 30%;
+  background-color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.card_item li {
+  font-size: 25px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 200;
+}
+
+.first_color {
+  border-left-color: #ffc100;
+  border-right-color: #ffc100;
+}
+
+.second_color {
+  border-left-color: #1d98d0;
+  border-right-color: #1d98d0;
+}
+
+.third_color {
+  border-left-color: #0dd868;
+  border-right-color: #0dd868;
+}
+
+/* FOOTER SECTION */
+
+footer {
+  background-color: rgb(52, 58, 64);
+  display: flex;
+  justify-content: center;
+  padding: 20px 0px;
+}
+
+.content_div h3::before {
+  color: rgb(255, 193, 0);
+  content: "GET";
+}
+
+.content_div {
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+hr {
+  margin: auto;
+  width: 153px;
+}
+
+footer a {
+  text-decoration: none;
+  color: rgb(248, 249, 250);
+  margin: 0px 5px;
+  font-family: "Open Sans";
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+footer h3 {
+  text-align: center;
+  font-family: "Open Sans";
+  font-size: 36px;
+  line-height: 49px;
+  color: #F8F9FA;;
+}
+
+footer p {
+  font-family: "Open Sans";
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  color: rgb(248, 249, 250);
+}
+
+footer a:hover {
+  color: #cecece
+}

@@ -1,0 +1,44 @@
+.modal{
+    position: fixed;
+    left:0;
+    top:0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: flex-start ;
+    justify-content: center;
+}
+.modal-content{
+    width: 500px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10%;
+
+}
+h4 {
+    font-size: 40px;
+    display: inline;
+}
+
+button.close {
+    float: right;
+    border-radius: 10px;
+    padding: 0 10px;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+}
+button.close :hover{
+    background-color: #cecece;
+}
+
+.modal-content input {
+    display: block;
+    margin: auto;
+    margin: 10px  auto;
+    padding: 10px 2px;
+    width: 250px;
+
+}

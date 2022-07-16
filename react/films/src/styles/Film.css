@@ -1,0 +1,28 @@
+ul.list-group {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 50px;
+
+}
+
+img {
+    width: 150px;
+}
+
+li {
+    list-style-type: none;
+}
+.search{
+    width: 250px;
+    height: 30px;
+    padding: 5px;
+}
+.more{
+    display: block;
+    font-size: 20px;
+    margin-top:10px ;
+}
+li>p{
+    font-size: 20px;
+    font-weight: 900;
+}
